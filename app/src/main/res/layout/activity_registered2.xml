@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:navigationTitle="完善信息" />
+    <com.canplay.milk.view.scrollView.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="49dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_rep_1_pic"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/register3"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="19dp"
+                    android:layout_width="25dp"
+                    android:layout_height="28dp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:textSize="15.5sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:hint="宝宝名称"
+                    android:id="@+id/et_name"
+                    android:textColor="#9fa0a0"
+                    android:textColorHint="#bdbdbd"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_rep_1_pic"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/register1"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="19dp"
+                    android:layout_width="25dp"
+                    android:layout_height="28dp" />
+                <TextView
+                    android:layout_weight="1"
+                    android:textSize="15.5sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+
+                    android:text=""
+                    android:inputType="text"
+                    android:hint="宝宝性别"
+                    android:id="@+id/tv_choose"
+                    android:textColor="#9fa0a0"
+                    android:textColorHint="#bdbdbd"/>
+                <LinearLayout
+                    android:id="@+id/ll_sex"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="13.5sp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:inputType="text"
+                        android:hint=""
+                        android:id="@+id/tv_sex"
+                        android:textColor="#9fa0a0"
+                        android:textColorHint="#bdbdbd"/>
+                    <ImageView
+                        android:src="@drawable/sanright"
+                        android:textSize="15sp"
+                        android:layout_marginRight="6dp"
+                        android:layout_width="13dp"
+                        android:layout_height="14dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_rep_1_pic"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/register2"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="19dp"
+                    android:layout_width="25dp"
+                    android:layout_height="28dp" />
+                <TextView
+                    android:textSize="15.5sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+
+                    android:hint="宝宝出生日期"
+                    android:id="@+id/et_date"
+                    android:textColor="#9fa0a0"
+                    android:textColorHint="#bdbdbd"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_rep_1_pic"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/register"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="19dp"
+                    android:layout_width="25dp"
+                    android:layout_height="28dp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:layout_weight="1"
+                    android:textSize="15.5sp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:inputType="numberDecimal"
+                    android:hint="宝宝出生体重"
+                    android:id="@+id/et_weight"
+                    android:maxLength="11"
+                    android:textColor="#9fa0a0"
+                    android:textColorHint="#bdbdbd"/>
+                <TextView
+                    android:textSize="13.5sp"
+
+                    android:layout_marginRight="18dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="kg"
+                    android:hint="男"
+                    android:textColor="#9fa0a0" />
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_marginTop="7dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tv_registered"
+                    android:padding="5dp"
+                    android:text="提示：宝宝信息填写完毕，完成后不可以修改"
+                    android:textColor="@color/a0"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/tv_next"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/login_selector"
+                android:gravity="center"
+                android:text="注册"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </com.canplay.milk.view.scrollView.StickyScrollView>
+
+
+</LinearLayout>

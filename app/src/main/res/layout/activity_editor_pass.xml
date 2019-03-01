@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/content_bg">
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationTitle="修改密码"
+        app:navigationRight_type="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_logo"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_sign_pic"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="19dp"
+                android:src="@drawable/icon_sign_in_password"
+                android:textSize="15sp" />
+
+            <com.canplay.milk.view.ClearEditText
+                android:id="@+id/et_pws"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入原始密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:text=""
+                android:textColor="#9fa0a0"
+                android:textColorHint="#bdbdbd"
+                android:textSize="15.5sp" />
+
+        </LinearLayout>
+         <TextView
+             android:id="@+id/tv_forget"
+             android:layout_marginTop="4dp"
+             android:text="忘记密码?"
+             android:layout_marginLeft="25dp"
+             android:textColor="@color/slow_black"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/btn_sign_pic"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_img"
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="19dp"
+                android:src="@drawable/icon_sign_in_password"
+                android:textSize="15sp" />
+
+            <com.canplay.milk.view.ClearEditText
+
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_img"
+                android:id="@+id/et_pws1"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="32dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="输入密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:text=""
+                android:textColor="#9fa0a0"
+                android:textColorHint="#bdbdbd"
+                android:textSize="15.5sp" />
+            <TextView
+                android:id="@+id/hint"
+                android:layout_marginBottom="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="8~16位，数字与字母结合"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/color9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_sign_pic"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="19dp"
+                android:src="@drawable/icon_sign_in_password"
+                android:textSize="15sp" />
+
+            <com.canplay.milk.view.ClearEditText
+                android:id="@+id/et_pws2"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="再次确认新密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:text=""
+                android:textColor="#9fa0a0"
+                android:textColorHint="#bdbdbd"
+                android:textSize="15.5sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="125dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginTop="28dp"
+            android:background="@drawable/login_selectorss"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

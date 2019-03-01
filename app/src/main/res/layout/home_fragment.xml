@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/content_bg"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.001dp"
+        android:id="@id/line"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+        <TextView
+            android:layout_width="match_parent"
+
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="首页"
+            android:textColor="@color/white"
+            android:background="@color/greens"
+            android:textSize="17sp" />
+        <ImageView
+            android:id="@+id/iv_pop"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:padding="6dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/btn_home_upp_nor"/>
+
+    </RelativeLayout>
+
+    <com.canplay.milk.view.scrollView.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:background="@drawable/home2">
+
+                <RelativeLayout
+                    android:layout_width="98dp"
+                    android:layout_height="98dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="90dp">
+
+                    <com.canplay.milk.view.WaveView xmlns:WaveView="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/wave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        WaveView:amplitude="28"
+                        WaveView:backgroundColor="#eedddddd"
+                        WaveView:firstWaveColor="#7ccce6"
+                        WaveView:secondWaveColor="#47bFdd"
+                        WaveView:speed="2"
+                        WaveView:waterProgress="50"
+                        WaveView:waveSize="90dp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="9dp"
+                    android:gravity="center_vertical"
+
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
+
+                <ImageView
+                    android:id="@+id/iv_img"
+                    android:layout_width="147dp"
+                    android:layout_height="147dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="26dp"
+                    android:src="@drawable/home1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        android:id="@+id/tv_mol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="96dp"
+                        android:gravity="center"
+                        android:text="750\nml"
+                        android:textColor="@color/white"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:gravity="center_vertical"
+                        android:text="今日奶量"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/line_regle_white"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_zqx"
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/line_regle_white"
+                            android:gravity="center"
+
+                            android:text="自清洗"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tv_add"
+                            android:layout_width="80dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+
+                            android:layout_marginEnd="51dp"
+                            android:layout_marginRight="51dp"
+                            android:background="@drawable/line_regle_white"
+                            android:gravity="center"
+                            android:text="一键冲奶"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/home3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="9.5dp"
+                        android:text="奶粉信息"
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_milk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/linecolor" />
+
+                <LinearLayout
+                    android:id="@+id/ll_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/home4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="9.5dp"
+                        android:text="冲奶设置"
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_change"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:text="冲奶调整"
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/linecolor" />
+
+                <LinearLayout
+                    android:id="@+id/ll_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/home5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="9.5dp"
+                        android:text="疫苗时间"
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_ym"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:gravity="center_vertical"
+                        android:text="天"
+                        android:textColor="#727171"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/linecolor" />
+
+                <LinearLayout
+                    android:id="@+id/ll_milk"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/home6" />
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="9.5dp"
+                        android:text=""
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center_vertical"
+                        android:text="10:30"
+                        android:textColor="@color/a0"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/linecolor" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.canplay.milk.view.scrollView.StickyScrollView>
+
+
+</LinearLayout>
+

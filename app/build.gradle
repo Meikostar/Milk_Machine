@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.antfortune.freeline'
+android {
+//    signingConfigs {
+//        debug {
+//            keyAlias 'yicss_app'
+//            keyPassword 'yicss123'
+//            storeFile file('./keystore/yicss_app.jks')
+//            storePassword 'yicss123'
+//        }
+//        release {
+//            keyAlias 'yicss_app'
+//            keyPassword 'yicss123'
+//            storeFile file('./keystore/yicss_app.jks')
+//            storePassword 'yicss123'
+//        }
+//    }
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    defaultConfig {
+        applicationId "com.canplay.medical"
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        buildTypes {
+            release {
+                minifyEnabled false
+
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+
+        }
+    }
+    productFlavors {
+    }
+    dexOptions {
+        javaMaxHeapSize "8g"
+        incremental true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+    }
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        //网络
+        compile('com.squareup.retrofit2:converter-simplexml:2.2.0') {
+            exclude group: 'stax', module: 'stax-api'
+            exclude group: 'stax', module: 'stax'
+            exclude group: 'xpp3', module: 'xpp3'
+        }
+        compile project(':gallery')
+        compile project(':LibMarsdaemon')
+        compile project(':zxingLibrary')
+        compile project(':framework')
+        compile project(':esptouch')
+        compile project(':lib')
+
+//        compile project(':zxingLibrary')
+
+        //Logcat
+        //圆形
+        //加载图片
+
+        //butterknife
+        //dagger
+        compile 'com.android.support:multidex:1.0.1'
+//        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        compile 'com.squareup.retrofit2:retrofit:2.2.0'
+        compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+        compile 'io.reactivex:rxjava:1.2.9'
+        compile 'io.reactivex:rxandroid:1.2.1'
+        compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
+        compile 'com.squareup.okhttp3:okhttp-urlconnection:3.7.0'
+        compile 'com.orhanobut:logger:1.15'
+        compile 'com.alibaba:fastjson:1.2.31'
+        compile 'com.malinskiy:superrecyclerview:1.1.4'
+        compile 'com.github.castorflex.smoothprogressbar:library-circular:1.2.0'
+        compile 'com.jakewharton:butterknife:8.5.1'
+        compile 'com.google.dagger:dagger-compiler:2.5'
+        testCompile 'junit:junit:4.12'
+        apt 'com.jakewharton:butterknife-compiler:8.5.1'
+//        compile 'com.android.support:cardview-v7:24.2.0'
+        apt 'com.google.dagger:dagger-compiler:2.5'
+        compile 'me.guhy:SwipeRefreshPlus:1.0.8'
+        compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+
+    }
+}
+
+dependencies {
+    compile files('libs/libammsdk.jar')
+}

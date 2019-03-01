@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+         android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/white_retagle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll_message"
+            android:background="@drawable/green2_retagle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/tv_title"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改闹钟提醒名称"
+                android:gravity="center"
+                android:textSize="19.5sp"/>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <com.canplay.milk.view.ClearEditText
+                android:paddingLeft="14dp"
+                android:layout_marginTop="25dp"
+                android:id="@+id/et_content"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/green1_oval_line"
+                android:gravity="center_vertical"
+                android:hint="请输入提醒标题"
+                android:maxLength="11"
+                android:text=""
+                android:textColor="#9fa0a0"
+                android:textColorHint="#bdbdbd"
+                android:textSize="15.5sp" />
+            <LinearLayout
+                android:layout_marginBottom="19dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/but_left"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="确定"
+                    android:background="@drawable/green3_retagle"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="15.3sp"
+                    android:layout_gravity="center"
+                    />
+
+                <Button
+                    android:background="@drawable/green3_retagle"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/but_right"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="15.3sp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:text="取消"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

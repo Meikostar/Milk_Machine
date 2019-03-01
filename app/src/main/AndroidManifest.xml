@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Android="http://schemas.android.com/apk/res-auto"
+    package="com.canplay.medical">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 允许请求访问使用照相设备(如果使用视频通话则必选配置) -->
+    <uses-sdk android:minSdkVersion="8" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 允许程序访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 扫描二维码 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 开启闪光灯 -->
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.autofocus"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 极光 -->
+    <!-- Required -->
+    <permission
+        android:name="com.canplay.medical.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="com.canplay.repast_wear.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 极光SDKend -->
+
+
+    <!-- baiduPermissionStart -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+        android:name="com.canplay.milk.base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/yjlogo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:persistent="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.GuideActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- authorities中改为自己的包名+.fileProvider -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.canplay.medical.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.MainActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.AddMilkActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.OutWatherActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.MilkDetailActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.ImageListWitesActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.PushMilkActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.AddBrandsActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.RemindMilkActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.home.RemindSettingActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.SearchMilkActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.home.MilkListActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.account.EditorPwsActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.mine.MineCodeActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:name="com.canplay.milk.mvp.activity.mine.MineInfoActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.mine.UpdateActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.mine.UserAvarActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.LookTImeActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.SeachResultActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.SendRecordActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.NurseryActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.PreviewRecordActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.PastWipiActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.PastWipiSearchActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.wiki.GroupRecordActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+        android:name="com.canplay.milk.mvp.activity.mine.AboutActivity"
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.mine.EditorInfoActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.mine.DevelopActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.RegisteredSecondActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.LoginActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.RegisteredActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.mine.WifiSettingActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.mine.SettingActivity"
+            android:theme="@style/AppTheme"
+     />
+        <activity
+            android:screenOrientation="portrait"
+            android:name="com.canplay.milk.mvp.activity.AlarmActivity"
+            android:theme="@style/AppTheme"
+            />
+
+        <activity
+
+            android:name="com.google.zxing.client.android.activity.CaptureActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.WebViewWitesActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.WebViewWitesActivitys"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.ForgetPswActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.ForgetFirstActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.canplay.milk.mvp.activity.account.ChangePhoneActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+
+
+
+
+
+        <!-- User defined.  For test only  用户自定义的广播接收器-->
+
+        <receiver android:name="com.canplay.milk.receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.canplay.alarm.lxm"/>
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.canplay.milk.receiver.Service1" android:process=":process1"/>
+        <receiver android:name="com.canplay.milk.receiver.Receiver1" android:process=":process1"/>
+        <service android:name="com.canplay.milk.receiver.Service2" android:process=":process2"/>
+        <receiver android:name="com.canplay.milk.receiver.Receiver2" android:process=":process2"/>
+        <!-- User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调-->
+        <!--<receiver android:name="com.example.jpushdemo.MyJPushMessageReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />-->
+        <!--<category android:name="您应用的包名"></category>-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!-- Required  . Enable it you can get statistics data with channel -->
+
+        <receiver android:name="com.canplay.milk.receiver.NetworkConnectChangedReceiver">
+            <intent-filter >
+                <action android:name="android.net.wifi.RSSI_CHANGED"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.canplay.milk.receiver.PhoneReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.canplay.milk.receiver.AlarmClockBroadcast"
+            android:process=":daemon">
+            <!--广播定义单独进程，在6.0上接受不到，不定义进程退到后台也接受不到。-->
+            <!--广播和后台运行的服务保持在一个线程，只要服务不死，这样就都可以接受到广播了-->
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+            <!--</intent-filter>-->
+        </receiver>
+
+        <receiver android:name="com.canplay.milk.receiver.BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.canplay.milk.receiver.AlarmClockProcessReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.canplay.medical.AlarmClockOff"/>
+            </intent-filter>
+        </receiver>
+
+        <!--        <service
+                    android:name=".service.NotificationCenter"
+                    android:exported="false"
+                    android:process=":pushservice">
+                </service>-->
+
+
+        <receiver
+            android:name="com.canplay.milk.receiver.WakeReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.kaku.weac.wake.gray"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.canplay.milk.receiver.DaemonService$DaemonInnerService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":daemon"/>
+        <service
+            android:name="com.canplay.milk.receiver.WakeReceiver$WakeNotifyService"
+            android:enabled="true"
+            android:exported="false"/>
+
+        <service
+            android:name="com.canplay.milk.receiver.WakeReceiver$WakeGrayInnerService"
+            android:enabled="true"
+            android:exported="false"/>
+
+
+        <service
+            android:name="com.canplay.milk.receiver.DaemonService"
+            android:exported="true"
+            android:process=":daemon">
+        </service>
+    </application>
+
+</manifest>

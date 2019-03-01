@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/content_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:id="@+id/line"/>
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationTitle="冲奶提醒" />
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/white_retagle">
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="开启提醒"
+            android:textSize="16sp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/a0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <com.canplay.milk.view.MCheckBox
+
+            android:clickable="false"
+            app:canNoClick="false"
+            app:isCheckeds="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="9dp"
+            android:id="@+id/iv_choose"
+            app:drawablechoose="@drawable/open"
+            app:drawables="@drawable/unopen"
+            android:layout_width="54dp"
+            android:layout_height="33dp"/>
+    </LinearLayout>
+    <TextView
+
+        android:layout_marginTop="6dp"
+        android:id="@+id/tv_remind"
+        android:gravity="center"
+        android:text=""
+        android:textSize="13sp"
+        android:layout_marginLeft="32dp"
+        android:textColor="@color/color72"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+    <ListView
+        android:layout_weight="1"
+        android:layout_marginTop="3dp"
+        android:id="@+id/rl_menu"
+        android:background="@color/content_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/lv_content"/>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/white">
+        <TextView
+
+            android:gravity="center"
+            android:text="添加提醒"
+            android:id="@+id/tv_add"
+            android:textSize="16.5sp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/green1_retagle"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

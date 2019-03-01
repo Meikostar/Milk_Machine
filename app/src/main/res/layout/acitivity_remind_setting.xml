@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/content_bg">
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationRight_img="@drawable/gou2"
+        app:navigationRight_type="img"
+        app:navigationTitle="提醒设置" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <TextView
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text=":"
+            android:textSize="24sp"
+            android:textColor="#000"
+            android:background="@drawable/whites_retagle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+     <com.canplay.milk.view.HourSelector
+         android:layout_width="120dp"
+         android:layout_height="150dp"
+          android:id="@+id/hour_select"
+         android:layout_centerVertical="true"
+         android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/whites_retagle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+       <TextView
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="15dp"
+           android:textColor="@color/a0"
+           android:textSize="16sp"
+           android:text="重复"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+        <LinearLayout  android:padding="1.5dp"
+            style="@style/new_alarm_clock_repeat_days_llyt">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_monday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/monday"
+                android:textOn="@string/monday"></ToggleButton>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/new_alarm_clock_repeat_days_llyt"
+            android:padding="1.5dp">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_tuesday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/tuesday"
+                android:textOn="@string/tuesday"></ToggleButton>
+        </LinearLayout>
+
+        <LinearLayout  android:padding="1.5dp"
+            style="@style/new_alarm_clock_repeat_days_llyt">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_wednesday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/wednesday"
+                android:textOn="@string/wednesday"></ToggleButton>
+        </LinearLayout>
+
+        <LinearLayout  android:padding="1.5dp"
+            style="@style/new_alarm_clock_repeat_days_llyt">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_thursday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/thursday"
+                android:textOn="@string/thursday"></ToggleButton>
+        </LinearLayout>
+
+        <LinearLayout  android:padding="1.5dp"
+            style="@style/new_alarm_clock_repeat_days_llyt">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_friday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/friday"
+                android:textOn="@string/friday"></ToggleButton>
+        </LinearLayout>
+
+        <LinearLayout  android:padding="1.5dp"
+            style="@style/new_alarm_clock_repeat_days_llyt">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_saturday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/saturday"
+                android:textOn="@string/saturday"></ToggleButton>
+        </LinearLayout>
+
+        <LinearLayout  android:padding="1.5dp"
+            style="@style/new_alarm_clock_repeat_days_llyt">
+
+            <ToggleButton
+                android:id="@+id/tog_btn_sunday"
+                style="@style/new_alarm_clcok_repeat_days_tog_btn"
+                android:textOff="@string/sunday"
+                android:textOn="@string/sunday"></ToggleButton>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
+        android:text="提示：每天"
+        android:textColor="@color/a0"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_tag"
+        android:layout_marginTop="14dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/whites_retagle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/a0"
+            android:textSize="16sp"
+            android:text="提醒名称"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_tag"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/a0"
+            android:textSize="16sp"
+            android:hint="编辑提醒标题"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>

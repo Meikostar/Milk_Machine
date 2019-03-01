@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/content_bg"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.001dp"
+        android:id="@id/line"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+        <TextView
+            android:layout_width="match_parent"
+
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="育儿百科"
+            android:textColor="@color/white"
+            android:background="@color/greens"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+    <com.canplay.milk.view.scrollView.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/linecolor" />
+
+            <LinearLayout
+                android:id="@+id/tv_time"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/bai1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="疫苗助手"
+                    android:textColor="@color/a0"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_ym"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center_vertical"
+                    android:text="27天"
+                    android:textColor="#727171"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/linecolor" />
+
+            <LinearLayout
+                android:id="@+id/ll_group"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/bai2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="成长记录本"
+                    android:textColor="@color/a0"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_record"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/bai3"
+
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/bai3" />
+                <LinearLayout
+                    android:layout_marginLeft="9dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:gravity="center_vertical"
+                        android:paddingLeft="3.5dp"
+                        android:text="今日百科"
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:maxLines="2"
+                        android:gravity="center_vertical"
+                        android:text="ff"
+                        android:textColor="#727171"
+                        android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/tv_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="10"
+                        android:text=""
+                        android:gravity="center_vertical"
+                        android:textColor="#727171"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="9dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|right"
+                        android:paddingLeft="3.5dp"
+                        android:layout_marginRight="15dp"
+                        android:text=""
+                        android:id="@+id/tv_times"
+                        android:textColor="@color/a0"
+                        android:textSize="11sp" />
+
+                    <ImageView
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/iv_img"
+                        android:layout_marginRight="16dp"
+                        android:layout_width="134dp"
+                        android:layout_height="154dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/icon_enc_pic" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_pass"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:background="@drawable/icon_enc_pic"
+                android:orientation="vertical">
+
+                <LinearLayout
+
+                    android:id="@+id/ll_past"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_marginRight="15dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/bai4" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="1.5dp"
+                        android:text="往期百科"
+                        android:textColor="@color/a0"
+                        android:textSize="16sp" />
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.canplay.milk.view.scrollView.StickyScrollView>
+
+
+</LinearLayout>
+

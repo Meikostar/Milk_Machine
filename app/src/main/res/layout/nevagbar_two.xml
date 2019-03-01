@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/content_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RadioGroup
+        android:padding="2dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/rd_group"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+
+        android:background="@drawable/greeb_retagle"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rd_one"
+            style="@style/button_item"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+           android:layout_width="65dp"
+
+            android:background="@drawable/develop_selector"
+            android:text="身高" />
+
+
+        <RadioButton
+
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:id="@+id/rd_two"
+            style="@style/button_item"
+            android:background="@drawable/develop_selector"
+            android:text="头围" />
+
+        <RadioButton
+            android:id="@+id/rd_three"
+            style="@style/button_item"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="65dp"
+            android:background="@drawable/develop_selector"
+            android:text="体重" />
+
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationRight_img="@drawable/share"
+        app:navigationRight_type="img"
+        app:navigationTitle="预览记录" />
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="18dp"/>
+
+    <LinearLayout
+        android:background="@drawable/white_retagle"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginRight="10dp"
+            android:text=""
+            android:textColor="@color/color72"
+            android:textSize="11sp"
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"/>
+        <ListView
+
+            android:id="@+id/listview_all_city"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/lv_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_add"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+
+        android:layout_height="62dp"
+        android:background="@color/white">
+        <TextView
+            android:gravity="center"
+            android:text="编辑记录"
+            android:id="@+id/tv_editor"
+            android:textSize="16.5sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/green1_retagle"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            />
+    </LinearLayout>
+</LinearLayout>

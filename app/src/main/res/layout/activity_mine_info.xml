@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/content_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:id="@+id/line"/>
+    <com.canplay.milk.view.NavigationBar
+        app:navigationRight_img="@drawable/gou2"
+        app:navigationRight_type="img"
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationTitle="个人中心" />
+    <com.canplay.milk.view.scrollView.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:background="@drawable/icon_per_pic"
+                android:layout_width="match_parent"
+                android:layout_height="118dp"
+                >
+
+                <com.canplay.milk.view.CircleImageView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/iv_imgs"
+                    app:border_width="6dp"
+                    app:border_color="@color/white"
+                    android:src="@drawable/btn_per_head"
+                    android:layout_width="97dp"
+                    android:layout_height="97dp"
+                    />
+            >
+            </RelativeLayout>
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/mine1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="昵称"
+                    android:textColor="@color/a0"
+                    android:textSize="16sp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/et_baby"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:hint="输入baby昵称"
+                    android:layout_marginRight="12dp"
+                    android:maxLength="11"
+                    android:textColor="#3e3e3e"
+                    android:textColorHint="#bdbdbd"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="20dp"
+                    />
+            </LinearLayout>
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/linecolor" />
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/mine2" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="宝爸"
+                    android:textColor="@color/a0"
+                    android:textSize="16sp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/et_father"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:hint="输入father昵称"
+                    android:layout_marginRight="12dp"
+                    android:maxLength="11"
+                    android:textColor="#3e3e3e"
+                    android:textColorHint="#bdbdbd"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="20dp"
+                    />
+            </LinearLayout>
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/linecolor" />
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/mine3" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="宝妈"
+                    android:textColor="@color/a0"
+                    android:textSize="16sp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:textSize="16sp"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/et_mami"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:hint="输入mother昵称"
+                    android:layout_marginRight="12dp"
+                    android:maxLength="11"
+                    android:textColor="#3e3e3e"
+                    android:textColorHint="#bdbdbd"/>
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="20dp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </com.canplay.milk.view.scrollView.StickyScrollView>
+
+
+</LinearLayout>

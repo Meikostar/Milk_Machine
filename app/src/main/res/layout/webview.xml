@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="fill_parent"
+        app:navigationRight_type="txt"
+        android:layout_height="wrap_content"/>
+
+    <WebView
+        android:layout_above="@+id/rl_rigter"
+        android:layout_below="@+id/navigationBar"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/webview_webView"/>
+
+    <include layout="@layout/web_tools"/>
+    <RelativeLayout
+
+        android:id="@+id/rl_rigter"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_height="43dp"
+            android:text="分享百科知识"
+            android:background="@drawable/login_selectorss"
+            android:layout_centerInParent="true"
+         />
+    </RelativeLayout>
+</RelativeLayout>

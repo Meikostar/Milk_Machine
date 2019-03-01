@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_bg">
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationTitle="记录编辑"
+        app:navigationRight_type="img"
+        app:navigationRight_img="@drawable/gou2"/>
+    <TextView
+
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:text="2018年3月5日"
+
+        android:textColor="@color/a0"
+        android:textSize="13sp" />
+    <RelativeLayout
+        android:layout_marginTop="9dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="135dp">
+
+        <LinearLayout
+            android:background="@drawable/whilte2_retagle"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <com.canplay.milk.view.ClearEditText
+                android:textColorHint="@color/txt_hint_color"
+                android:id="@+id/et_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="30dp"
+                android:maxLength="200"
+                android:background="@null"
+                android:paddingLeft="5dp"
+                android:paddingTop="6dp"
+                android:text=""
+                android:hint="请输入编辑内容"
+                android:textSize="13.5sp"
+                android:textColor="@color/slow_black" />
+
+        </LinearLayout>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/linecolor"
+            android:layout_marginLeft="15dp"/>
+    </RelativeLayout>
+    <TextView
+
+        android:id="@+id/tv_cout"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="8dp"
+        android:text="0/200"
+
+        android:textColor="@color/a0"
+        android:textSize="13sp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/iv_add_photo"
+                android:layout_width="94dp"
+                android:layout_height="94dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/green3_retagle"
+                android:gravity="center"
+                android:text="添加图片"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <com.canplay.milk.view.ImageUploadView
+            android:id="@+id/piuv_remark_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5.7dp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:id="@+id/ll_bottom_button"/>
+</LinearLayout>

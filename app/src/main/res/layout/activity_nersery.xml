@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/content_bg"
+    android:layout_height="match_parent">
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:navigationTitle="疫苗助手" />
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/whilte2_retagle"
+        android:id="@+id/ll_my"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <ImageView
+
+            android:layout_marginLeft="14dp"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:src="@drawable/time1"/>
+        <TextView
+            android:id="@+id/tv_content"
+            tools:text="下一次疫苗时间："
+            android:layout_weight="1"
+            android:layout_marginLeft="13dp"
+            android:textColor="@color/color72"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="13dp"
+            android:text="27天"
+            android:textColor="@color/slow_black"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <com.malinskiy.superrecyclerview.SuperRecyclerView
+        android:id="@+id/super_recycle_view"
+        android:overScrollMode="never"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
+        app:layout_moreProgress="@layout/view_more_progress"
+        app:recyclerClipToPadding="true"
+        app:scrollbarStyle="outsideOverlay" />
+</LinearLayout>

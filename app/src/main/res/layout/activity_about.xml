@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/content_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:id="@+id/line"/>
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationTitle="关于我们" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/linecolor"/>
+    <ImageView
+        android:layout_gravity="center_horizontal"
+         android:src="@drawable/icon_baby_logo"
+        android:layout_marginTop="20dp"
+        android:layout_width="107dp"
+        android:layout_height="72dp" />
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="baby奶乐泡奶机"
+        android:textColor="@color/a0"
+        android:textSize="16sp" />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:text="     乐清市新航电器有限公司是一家致力于研发生产新型家用电器的公司。baby奶乐泡奶机属于公司旗下的产品，专注于婴幼儿身心健康，提供给您舒适而又温馨的生活。\n\n          联系电话：\n          公司地址：  "
+        android:textColor="@color/a0"
+        android:textSize="13sp" />
+
+
+</LinearLayout>

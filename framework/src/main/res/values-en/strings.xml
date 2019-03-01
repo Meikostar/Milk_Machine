@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">framework</string>
+    <string name="xlistview_header_hint_normal">Pull Refresh</string>
+    <string name="xlistview_header_hint_ready">Release to Refresh</string>
+    <string name="xlistview_header_hint_loading">Loading…</string>
+    <string name="xlistview_header_last_time">Last Refresh Time:</string>
+    <string name="xlistview_footer_hint_normal">Load More</string>
+    <string name="xlistview_footer_hint_ready">Release to load more</string>
+</resources>

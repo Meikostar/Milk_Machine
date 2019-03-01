@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 圆角imageView的之定义属性 -->
+    <declare-styleable name="RoundAngleImageView">
+        <attr name="roundWidth" format="dimension" />
+        <attr name="roundHeight" format="dimension" />
+    </declare-styleable>
+
+    <!-- 垂直或者水平的viewpager -->
+    <declare-styleable name="DirectionViewPager">
+        <attr name="orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 圆形ImageView -->
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+
+    <!---->
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="slidingBlock" format="reference|color" />
+        <attr name="allowWidthFull" format="boolean" />
+        <attr name="disableViewPager" format="boolean" />
+    </declare-styleable>
+
+    <!--superslime 粘性gridView-->
+    <declare-styleable name="superslim_LayoutManager">
+        <attr name="slm_isHeader" format="boolean" />
+        <attr name="slm_headerDisplay">
+            <flag name="inline" value="0x01" />
+            <flag name="start" value="0x02" />
+            <flag name="end" value="0x04" />
+            <flag name="overlay" value="0x08" />
+            <flag name="sticky" value="0x10" />
+        </attr>
+        <attr name="slm_section_firstPosition" format="integer" />
+        <attr name="slm_section_sectionManager" format="enum|string">
+            <enum name="linear" value="0x01" />
+            <enum name="grid" value="0x02" />
+            <enum name="staggered_grid" value="0x03" />
+        </attr>
+        <attr name="slm_section_headerMarginStart" format="enum|dimension">
+            <enum name="match_header" value="-1" />
+        </attr>
+        <attr name="slm_section_headerMarginEnd" format="enum|dimension">
+            <enum name="match_header" value="-1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="superslim_GridSLM">
+        <attr name="slm_grid_columnWidth" format="dimension" />
+        <attr name="slm_grid_numColumns" format="enum|integer">
+            <enum name="auto_fit" value="-1" />
+        </attr>
+    </declare-styleable>
+    <!--superslime 粘性gridView-->
+    <!--google 流式布局 start-->
+    <declare-styleable name="FlexboxLayout">
+        <attr name="flexDirection">
+            <enum name="row" value="0" />
+            <enum name="row_reverse" value="1" />
+            <enum name="column" value="2" />
+            <enum name="column_reverse" value="3" />
+        </attr>
+
+        <attr name="flexWrap">
+            <enum name="nowrap" value="0" />
+            <enum name="wrap" value="1" />
+            <enum name="wrap_reverse" value="2" />
+        </attr>
+
+        <!--
+            Omitting flex-flow property since it's reflected in the parent flex container.
+            Set the flexDirection and/or flexWrap to the parent flex container explicitly if you
+            want to use the flex-flow similar way to the web.
+         -->
+
+        <attr name="justifyContent">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+        </attr>
+
+        <attr name="alignItems">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="baseline" value="3" />
+            <enum name="stretch" value="4" />
+        </attr>
+
+        <attr name="alignContent">
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="space_between" value="3" />
+            <enum name="space_around" value="4" />
+            <enum name="stretch" value="5" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="FlexboxLayout_Layout">
+        <attr name="layout_order" format="integer" />
+
+        <!-- Negative numbers are invalid. -->
+        <attr name="layout_flexGrow" format="float" />
+
+        <!-- Negative numbers are invalid. -->
+        <attr name="layout_flexShrink" format="float" />
+
+        <!--
+            The initial length in a percentage format relative to its parent. This is similar to the
+            flex-basis property in the original CSS specification.
+            (https://www.w3.org/TR/css-flexbox-1/#flex-basis-property)
+            But unlike the flex-basis property, this attribute only accepts a value in fraction
+            (percentage), whereas flex-basis property accepts width values such as 1em, 10px and
+            the 'content' string.
+            But specifying initial fixed width values can be done by specifying width values in
+            layout_width (or layout_height, varies depending on the flexDirection). Also the same
+            effect can be done by specifying "wrap_contnet" in layout_width (or layout_height) if
+            developers want to achieve the same effect as 'content'.
+            Thus, this attribute only accepts fraction values, which can't be done through
+            layout_width (or layout_height) for simplicity.
+        -->
+        <attr name="layout_flexBasisPercent" format="fraction" />
+
+        <!--
+            Omitting flex property since it's a shorthand for layout_flexGrow and layout_flexShrink
+            and layout_percentInParent (flex-basis in the original CSS spec).
+        -->
+
+        <attr name="layout_alignSelf">
+            <enum name="auto" value="-1" />
+            <!-- The values below need to match the values of alignItems -->
+            <enum name="flex_start" value="0" />
+            <enum name="flex_end" value="1" />
+            <enum name="center" value="2" />
+            <enum name="baseline" value="3" />
+            <enum name="stretch" value="4" />
+        </attr>
+    </declare-styleable>
+    <!--google 流式布局 end-->
+</resources>

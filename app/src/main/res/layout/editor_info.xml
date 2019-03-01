@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/content_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:id="@+id/line"/>
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationRight_img="@drawable/gou2"
+        app:navigationRight_type="img"
+        app:navigationTitle="资料修改" />
+    <com.canplay.milk.view.scrollView.StickyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <View
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@color/greens" />
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:minHeight="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.5dp"
+                    android:text="昵称"
+                    android:textColor="@color/a0"
+                    android:textSize="13sp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/et_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:hint="输入baby名称"
+                    android:layout_marginRight="12dp"
+                    android:maxLength="30"
+                    android:textColor="@color/color72"
+                    android:textColorHint="#bdbdbd"/>
+
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="30字以内"
+                    android:textColor="@color/a0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@color/greens" />
+            <View
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@color/greens" />
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.5dp"
+                    android:text="宝宝体重"
+                    android:textColor="@color/a0"
+                    android:textSize="13sp" />
+                <com.canplay.milk.view.ClearEditText
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/et_baby"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:inputType="numberDecimal"
+                    android:hint="输入baby体重"
+                    android:layout_marginRight="12dp"
+                    android:maxLength="11"
+                    android:textColor="@color/color72"
+                    android:textColorHint="#bdbdbd"/>
+
+                <TextView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="kg"
+                    android:textColor="@color/a0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@color/greens" />
+            <View
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@color/greens" />
+            <LinearLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="12.5dp"
+                    android:text="宝宝生日"
+                    android:textColor="@color/a0"
+                    android:textSize="13sp" />
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
+                    android:id="@+id/tv_date"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+
+                    android:gravity="center_vertical"
+
+                    android:hint="你还没有填写baby生日呢"
+
+                    android:textColor="@color/color72"
+                    android:textColorHint="#bdbdbd"/>
+
+                <TextView
+                    android:id="@+id/tv_add"
+                    android:padding="15dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9.5dp"
+                    android:text="点击可修改"
+                    android:textColor="@color/a0"
+                    android:textSize="13sp" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.8dp"
+                android:background="@color/greens" />
+        </LinearLayout>
+    </com.canplay.milk.view.scrollView.StickyScrollView>
+
+
+</LinearLayout>

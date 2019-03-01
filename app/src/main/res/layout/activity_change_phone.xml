@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/content_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:id="@+id/line"/>
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:navigationTitle="更换手机号" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/linecolor"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:text="更换手机后，下次登录可使用新手机号登录。当前\t手机号："
+            android:textColor="#878787"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginBottom="19dp"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:text="手 机 号"
+            android:textColor="@color/slow_black"
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19dp"
+                android:text="手 机 号"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <com.canplay.milk.view.ClearEditText
+                android:id="@+id/et_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入手机号"
+                android:inputType="number"
+                android:maxLength="11"
+                android:text=""
+                android:textColor="@color/slow_black"
+                android:textColorHint="@color/bd"
+                android:textSize="16.5sp" />
+
+            <TextView
+                android:id="@+id/tv_getcode"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/login_selector"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="获取验证码"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/linecolor" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19dp"
+                android:text="验 证 码"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <com.canplay.milk.view.ClearEditText
+                android:id="@+id/et_code"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="12dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:maxLength="11"
+                android:text=""
+                android:textColor="@color/slow_black"
+                android:textColorHint="@color/bd"
+                android:textSize="16.5sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/login_selector"
+        android:gravity="center"
+        android:text="登陆"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="0.001dp"
+        android:id="@+id/line"/>
+    <com.canplay.milk.view.NavigationBar
+        android:id="@+id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationRight_img="@drawable/gou2"
+        app:navigationRight_type="img"
+        app:navigationTitle="冲奶设置" />
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+            <ImageView
+
+                android:src="@drawable/milk2"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="50dp"
+                android:layout_height="55dp" />
+            <TextView
+                android:layout_weight="1"
+                android:textSize="15.5sp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="12dp"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:gravity="center_vertical"
+                android:text="水量设置"
+                android:textColor="#9fa0a0"
+                />
+         <com.canplay.milk.view.BaseSelector
+             android:id="@+id/bs_ml"
+             app:hours="2"
+             app:typeps="2"
+             android:layout_width="65dp"
+             android:layout_height="match_parent"/>
+        <TextView
+            android:textSize="15.5sp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:text="ml"
+            android:textColor="#9fa0a0"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"/>
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+
+            android:src="@drawable/milk1"
+            android:textSize="15sp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="50dp"
+            android:layout_height="55dp" />
+        <TextView
+            android:layout_weight="1"
+            android:textSize="15.5sp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:text="泡奶温度"
+            android:textColor="#9fa0a0"
+            />
+        <com.canplay.milk.view.BaseSelector
+            android:id="@+id/bs_wd"
+            app:typeps="0"
+            app:hours="45"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textSize="15.5sp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:text=" ℃"
+            android:textColor="#9fa0a0"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"/>
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:src="@drawable/nongdu"
+            android:textSize="15sp"
+            android:layout_marginLeft="15dp"
+            android:layout_width="50dp"
+            android:layout_height="55dp" />
+        <TextView
+            android:layout_weight="1"
+            android:textSize="15.5sp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:gravity="center_vertical"
+            android:text="浓度设置"
+            android:id="@+id/tv_equptname"
+            android:textColor="#9fa0a0"
+            />
+        <com.canplay.milk.view.BaseSelector
+            android:id="@+id/bs_nd"
+            app:typeps="1"
+            app:hours="2"
+            android:layout_marginRight="40dp"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/linecolor"/>
+    <TextView
+        android:layout_marginTop="60dp"
+        android:id="@+id/tv_milk"
+        android:background="@drawable/green1_retagle"
+        android:textSize="15.5sp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="62dp"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="立即冲奶"
+        android:textColor="#fff"
+        />
+</LinearLayout>

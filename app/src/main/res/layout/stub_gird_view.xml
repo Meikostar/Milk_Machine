@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/gridview_to_gallery.xml -->
+<HorizontalScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="107dp"
+    android:background="@color/white"
+    android:scrollbars="none">
+    <LinearLayout
+
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <GridView
+            style="@style/lv_content"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="107dp"
+            />
+    </LinearLayout>
+
+</HorizontalScrollView>

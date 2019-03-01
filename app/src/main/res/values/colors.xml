@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--通用颜色-->
+    <color name="gray">#E1E1E1</color>
+    <color name="red">#F90808</color>
+    <color name="yellow">#F1AC07</color>
+    <color name="yellows">#FFe616</color>
+    <color name="blue">#1098f2</color>
+    <color name="a0">#9fa0a0</color>
+    <color name="blues">#00A8FF</color>
+    <color name="color72">#727171</color>
+    <color name="blu">#FFBFE9FF</color>
+    <color name="green">#78bb4f</color>
+    <color name="orange">#FFA228</color>
+    <color name="e6">#e6e6e6</color>
+    <!-- 黑色: 40 -->
+
+    <color name="da">#dadada</color>
+    <color name="gray_deep">#5c5c5c</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="progress_color">#3F51B5</color>
+    <color name="progress_text_color">@color/white</color>
+    <color name="dominant_hue">#16B71B</color>
+    <color name="dominant_hue_dark">#108313</color>
+    <color name="white_dark">#b4ffffff</color>
+    <color name="dialog_bg">#88666666</color>
+    <color name="linecolor">#e6e6e6</color>
+    <color name="titles">#797979</color>
+    <color name="menu_background">@color/dominant_hue</color>
+    <color name="line_color">#f8f8f8</color>
+    <color name="title">#bfbfbf</color>
+    <color name="navibar_color">#ffffff</color>
+    <color name="text_default">@android:color/black</color>
+    <color name="slow_black">#3e3a39</color>
+    <color name="color6">#666</color>
+    <color name="bottom">#727171</color>
+    <color name="color9">#999999</color>
+    <color name="color8">#888</color>
+    <color name="hint_red">#ff4439</color>
+    <color name="color_primary_e3">#e3e3e3</color>
+    <color name="txt_blue">#2196f3</color>
+    <color name="txt_hint_color">#cdd1d4</color>
+    <color name="color_8290AF">#8290AF</color>
+
+    <color name="bd">#bdbdbd</color>
+    <color name="red_cyc">#E51c23</color>
+    <color name="red_pop">#fe5a73</color>
+    <color name="reds">#fd5b73</color>
+    <color name="green_cyc">#27cd41</color>
+    <color name="org_cyc">#ffa900</color>
+    <color name="text_shad">#cccacc</color>
+    <color name="orange_f">#ffa900</color>
+    <color name="pink">#f8687e</color>
+
+    <color name="round_hui">#63605e</color>
+    <color name="round_half_balck">#41403e</color>
+    <color name="cycle_shade">#4f4f4f</color>
+    <color name="car_begin">#6d7473</color>
+    <color name="content_bg">#F8F8F8</color>
+    <color name="bg">#F8f8f8</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="white_trans10">#1affffff</color>
+    <!-- 白色:10 -->
+    <color name="white_trans20">#33ffffff</color>
+    <!-- 白色:20 -->
+    <color name="white_trans30">#4dffffff</color>
+    <!-- 白色:30 -->
+    <color name="white_trans40">#66ffffff</color>
+    <!-- 白色:40 -->
+    <color name="white_trans50">#80FFFFFF</color>
+    <!-- 白色:60 -->
+    <color name="white_trans60">#99FFFFFF</color>
+    <!-- 白色:60 -->
+    <color name="white_trans90">#e6ffffff</color>
+    <!-- 白色:90 -->
+    <color name="white">#FFFFFF</color>
+    <color name="greens">#3DDDA8</color>
+    <color name="dpgreen">#159A64</color>
+    <!-- 白色 -->
+    <color name="black_trans10">#1a000000</color>
+    <!-- 黑色: 10 -->
+    <color name="black_trans15">#26000000</color>
+    <!-- 黑色: 15 -->
+    <color name="black_trans20">#33000000</color>
+    <!-- 黑色: 20 -->
+    <color name="black_trans25">#40000000</color>
+    <!-- 黑色: 25 -->
+    <color name="black_trans30">#4d000000</color>
+    <!-- 黑色: 30 -->
+    <color name="black_trans40">#66000000</color>
+    <!-- 黑色: 40 -->
+    <color name="black_trans50">#80000000</color>
+    <!-- 黑色: 50 -->
+    <color name="black_trans60">#99000000</color>
+    <!-- 黑色：60 -->
+    <color name="black_trans70">#b3000000</color>
+    <!-- 黑色：70 -->
+    <color name="black_trans80">#CC000000</color>
+    <!-- 黑色：80 -->
+    <color name="black_trans90">#E6000000</color>
+    <!-- 黑色：90 -->
+    <color name="black">#000000</color>
+    <!-- 黑色 -->
+    <!-- 红色 -->
+    <color name="gray_background_color">#F4F4F4</color>
+    <!-- 灰色1 -->
+    <color name="gray_divider_line">#DDDDDD</color>
+    <!-- 灰色2：分割线 -->
+    <color name="gray_record_operate_item">#D0D0D0</color>
+    <!-- 灰色3 -->
+    <color name="gray_seekbar">#C0C0C0</color>
+    <!-- 灰色4 -->
+    <color name="gray_tab">#989898</color>
+    <!-- 灰色4 -->
+    <color name="gray_nap_edit">#808080</color>
+    <!-- 灰色5 -->
+    <color name="black_text_normal_common">#4B4B4B</color>
+    <!-- 灰色6 -->
+    <color name="darkgray">#A9A9A9</color>
+    <!-- 灰色 -->
+    <color name="dark_gray">#989898</color>
+    <!-- 深灰色:取消按钮 -->
+    <color name="dark_gray_button_pressed">#808080</color>
+    <!-- 深灰色:取消按钮按下 -->
+    <color name="blue_green">#0CCDF6</color>
+    <!-- 蓝绿色:小睡 -->
+    <color name="blue_green50">#800CCDF6</color>
+    <!-- 蓝绿色:闹铃响起关闭按钮 50 -->
+    <color name="blue_green60">#9A0CCDF6</color>
+    <!-- 蓝绿色:闹铃响起关闭按钮 60 -->
+    <color name="dark_blue_focus">#403F51B5</color>
+    <!-- 深蓝色:文字焦点25 -->
+    <color name="dark_blue_invalidate">#993F51B5</color>
+    <!-- 深蓝色:确定按钮不可用60 -->
+    <color name="dark_blue">#3F51B5</color>
+    <!-- 深蓝色:确定按钮 -->
+    <color name="dark_blue_trans40">#663F51B5</color>
+    <!-- 深蓝色:40 -->
+    <color name="dark_blue_button_pressed">#303F9F</color>
+    <!-- 深蓝色:确定按钮按下 -->
+    <color name="blue_tog_btn">#397cbf</color>
+    <!-- 深蓝色:toggleBtn -->
+    <color name="blue_tog_btn_pressed">#286DD4</color>
+    <!-- 深蓝色:toggleBtn按下 -->
+    <color name="yellow_hot">#f9c000</color>
+    <!-- 暖黄色:白天气温 -->
+    <color name="blue_ice">#72abf8</color>
+    <!-- 冷蓝色:夜间气温 -->
+
+</resources>

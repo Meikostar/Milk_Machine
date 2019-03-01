@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_time_select"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#661a1a1a">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:background="@color/content_bg"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/select_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="编辑姓名"
+            android:textSize="17sp"
+            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_marginRight="23dp"
+            android:layout_marginLeft="23dp"
+            android:padding="1dp"
+            android:layout_marginBottom="23dp"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+         >
+            <LinearLayout
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.canplay.milk.view.ClearEditText
+                    android:paddingLeft="11dp"
+                    android:id="@+id/et_money"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输姓名"
+                    android:textColorHint="@color/color8"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    tools:ignore="RtlHardcoded" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_gravity="center"
+            android:background="@color/linecolor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            >
+            <TextView
+                android:id="@+id/but_tsw_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="11.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="0.6dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+
+                android:background="@color/linecolor"/>
+
+            <TextView
+                android:id="@+id/but_tsw_confirm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="11.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/sure"
+                android:textColor="@color/blue"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

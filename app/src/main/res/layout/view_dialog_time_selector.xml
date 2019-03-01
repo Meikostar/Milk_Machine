@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fl_time_select"
+    android:background="#661a1a1a">
+
+    <LinearLayout
+         android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:background="@drawable/white_retagle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:text="修改生日"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:id="@+id/tv_title"
+            android:background="@drawable/green2_retagle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/linecolor"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#ffffff">
+
+            <com.canplay.milk.view.CycleWheelView
+                android:id="@+id/cwv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11.5dp"
+                android:layout_weight="1"/>
+
+            <com.canplay.milk.view.CycleWheelView
+                android:id="@+id/cwv_hour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <com.canplay.milk.view.CycleWheelView
+                android:id="@+id/cwv_minute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="11.5dp"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_hint"
+
+            android:layout_marginLeft="20dp"
+            android:textSize="13sp"
+            android:textColor="@color/a0"
+            android:text="提示：生日修改后，疫苗助手也会相应的调整。"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:id="@+id/but_tsw_confirm"
+                android:layout_width="57.5dp"
+                android:layout_height="44dp"
+                android:layout_marginRight="21.5dp"
+                android:text="确定"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@drawable/greeb_retagle"
+             />
+            <Button
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:id="@+id/but_tsw_cancel"
+                android:layout_width="57.5dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="21.5dp"
+                android:textSize="16sp"
+                android:text="@string/cancel"
+                android:background="@drawable/greeb_retagle"
+                android:textColor="@color/white"
+              />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

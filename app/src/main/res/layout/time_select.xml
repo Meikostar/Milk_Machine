@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fl_time_select"
+    android:background="#661a1a1a">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#f7f7f7">
+
+            <TextView
+                android:gravity="center"
+                android:textSize="15.5sp"
+                android:id="@+id/but_cancel"
+                android:layout_width="57.5dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="11.5dp"
+                android:text="@string/cancel"
+
+                android:layout_gravity="left|center_vertical"/>
+            <TextView
+                android:visibility="gone"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:id="@+id/but_title"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_marginLeft="11.5dp"
+                android:text="@string/cancel"
+                android:textColor="@color/color6"
+                android:layout_gravity="center"/>
+            <TextView
+                android:gravity="center"
+                android:textSize="15.5sp"
+                android:id="@+id/but_confirm"
+                android:layout_width="57.5dp"
+                android:layout_height="29dp"
+                android:layout_marginRight="11.5dp"
+                android:text="@string/sure"
+                android:textColor="@color/blue"
+                android:layout_gravity="right|center_vertical"/>
+
+        </FrameLayout>
+        <com.canplay.milk.view.HourSelector
+            android:id="@+id/selector"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:hour="8"
+            app:minter="00"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

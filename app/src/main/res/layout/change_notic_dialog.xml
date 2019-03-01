@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#661a1a1a"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+        <TextView
+            android:layout_marginTop="18dp"
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:text="变更用药计划"
+            />
+        <LinearLayout
+
+            android:layout_marginTop="20dp"
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/moren"
+                android:id="@+id/iv_img"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="25dp"/>
+
+            <LinearLayout
+                android:layout_marginLeft="12dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="阿莫西林"
+                        android:textColor="@color/white"
+                        android:textSize="16.5sp"
+                        />
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/tv_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18702606458"
+                        android:textColor="@color/white"
+                        android:textSize="13.5sp"
+                        />
+
+                </LinearLayout>
+                <TextView
+                    android:lines="2"
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/tv_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="主治医师 |主治医师"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/list"
+            style="@style/lv_content"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:background="@color/white"
+            android:visibility="visible" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/linecolor"/>
+        <LinearLayout
+
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            >
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="忽略"
+                android:textColor="@color/blue"
+                android:textSize="15.5sp"
+                />
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="@color/linecolor"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"
+                />
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="同意"
+                android:textColor="@color/blue"
+                android:textSize="15.5sp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>
