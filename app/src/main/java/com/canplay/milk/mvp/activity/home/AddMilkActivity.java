@@ -163,12 +163,16 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-//                   +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
-                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-                                +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
+                        String a1=( Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "").toUpperCase();
+                        String a2=(Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "").toUpperCase();
+                        String a3= (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
+                        String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
+                        String a5=(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "").toUpperCase();
+//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
+//                                +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
 //                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "" + Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
-                        MilkConstant.selectCommnt(3, content.toUpperCase());
+                        String s = (a1+a2+a3+a4+a5);
+                        MilkConstant.selectCommnt(3, s);
                         String cont = MilkConstant.sendCommend();
                         if(TextUtil.isEmpty(cont)){
                             startActivity(new Intent(AddMilkActivity.this, WifiSettingActivity.class));
@@ -324,14 +328,24 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
                             cout = 0;
                         } else {
                             if (state == 2) {
+                                String a1=( Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "").toUpperCase();
+                                String a2=(Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "").toUpperCase();
+                                String a3= (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
+                                String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
+                                String a5=(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "").toUpperCase();
+//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
+//                                +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
+//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "" + Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
+                                String s = (a1+a2+a3+a4+a5);
+                                MilkConstant.selectCommnt(3, s);
                                 String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
                                         +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
-                                String s = content.toUpperCase();
+//                                String s = content.toUpperCase();
 //                                MilkConstant.selectCommnt(3, content);
 //                                String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
 //                                        +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
 //                                String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "" + Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
-                                MilkConstant.selectCommnt(3, content.toUpperCase());
+//                                MilkConstant.selectCommnt(3, content.toUpperCase());
 
                                 TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
                             } else {

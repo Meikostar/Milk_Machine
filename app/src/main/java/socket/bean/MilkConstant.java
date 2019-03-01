@@ -76,7 +76,7 @@ public class MilkConstant {
             RECE=1;
             LENGTH = "0A";
             COMMEND = "B2" + cont;//自清洗命令发送
-            hert_time = 1000;
+            hert_time = 1500;
 
             BaseApplication.send=1;
             SEND = 1;
@@ -85,7 +85,7 @@ public class MilkConstant {
             RECE=2;
             LENGTH = "0D";
             COMMEND = "B3" + cont;//泡奶命令发送
-            hert_time = 1000;
+            hert_time = 1500;
 
             BaseApplication.send=1;
             SEND = 1;
@@ -94,7 +94,7 @@ public class MilkConstant {
             RECE=3;
             LENGTH = "0A";
             COMMEND = "B4" + cont;//一键出水
-            hert_time = 1000;
+            hert_time = 1500;
 
             BaseApplication.send=1;
             SEND = 1;
@@ -123,7 +123,7 @@ public class MilkConstant {
             CONT="";
             LENGTH = "09";
             COMMEND = "B9" + cont;//泡奶量回复
-            hert_time = 1000;
+            hert_time = 1500;
             BaseApplication.send=1;
             SEND = 1;
         }
@@ -193,7 +193,7 @@ public class MilkConstant {
     public static String STATE;//状态
     public static String CONT;//状态
     public static int SEND;//状态
-    public static long hert_time = 6000;//奶瓶状态
+    public static long hert_time = 9000;//奶瓶状态
 
     public static String getInfo(String cont) {
         String content="";

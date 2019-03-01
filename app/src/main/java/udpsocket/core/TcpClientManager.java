@@ -156,7 +156,7 @@ public class TcpClientManager implements  TcpClientListener {
                 MilkConstant.selectCommnt(1,"01");
                 SendMessage(MilkConstant.sendCommends(),null);
                 try {
-                    Thread.sleep(5000);// 正常
+                    Thread.sleep(8000);// 正常
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -321,7 +321,7 @@ public class TcpClientManager implements  TcpClientListener {
 
     };
     public static Handler handler ;
-    private int time=7000;
+    private int time=9000;
      public void startAD() {
 
         handler.removeCallbacks(runnable);

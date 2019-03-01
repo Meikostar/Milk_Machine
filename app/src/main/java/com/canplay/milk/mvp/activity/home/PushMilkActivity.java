@@ -140,10 +140,15 @@ public class PushMilkActivity extends BaseActivity implements BaseContract.View 
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        String a1=(Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "").toUpperCase();
+                        String a2=(Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "").toUpperCase();
+                        String a3= (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01"));
+                        String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
+                        String a5= (getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "").toUpperCase();
                         String content = (Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "").toUpperCase()  +(Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "").toUpperCase() + (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
                                 +(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "")).toUpperCase();
-                        String s = content.toUpperCase();
-                        MilkConstant.selectCommnt(3, content);
+                        String s = (a1+a2+a3+a4+a5);
+                        MilkConstant.selectCommnt(3, s);
                         String cont = MilkConstant.sendCommend();
                         if(TextUtil.isEmpty(cont)){
                             startActivity(new Intent(PushMilkActivity.this, WifiSettingActivity.class));
@@ -378,10 +383,18 @@ public class PushMilkActivity extends BaseActivity implements BaseContract.View 
                             cout = 0;
                         } else {
                             if (state == 2) {
-                                String content = Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + ""  +Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "" + (milk.consistence.equals("高") ? "03" : (milk.consistence.equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-                                        +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "");
+                                   String a1=(Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "").toUpperCase();
+                                String a2=(Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "").toUpperCase();
+                                String a3= (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01"));
+                                String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
+                                String a5= (getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "").toUpperCase();
+//                                String content = (Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "").toUpperCase()  +(Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "").toUpperCase() + (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
+//                                        +(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "")).toUpperCase();
+                                String s = (a1+a2+a3+a4+a5);
+//                                String content = Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + ""  +Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "" + (milk.consistence.equals("高") ? "03" : (milk.consistence.equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
+//                                        +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "");
 //                                String content = Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "" + Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "" + (milk.consistence.equals("高") ? "03" : (milk.consistence.equals("中") ? "02" : "01"));
-                                MilkConstant.selectCommnt(3, content.toUpperCase());
+                                MilkConstant.selectCommnt(3, s);
                                 TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), PushMilkActivity.this);
                             } else {
                                 if (cont == 0) {

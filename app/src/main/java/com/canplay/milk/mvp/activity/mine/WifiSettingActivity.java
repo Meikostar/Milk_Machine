@@ -373,6 +373,9 @@ public class WifiSettingActivity extends BaseActivity {
                     }
 
                 } else if (SubscriptionBean.CONNECT == bean.type) {
+                    if(WifiSettingActivity.this!=null){
+                       return;
+                    }
                     if(mTask!=null){
                         if(mTask.mProgressDialog!=null){
                             mTask.mProgressDialog.dismiss();
@@ -737,6 +740,9 @@ public class WifiSettingActivity extends BaseActivity {
         protected void onPostExecute(List<IEsptouchResult> result) {
             WifiSettingActivity activity = mActivity.get();
             mProgressDialog.dismiss();
+            if(WifiSettingActivity.this!=null){
+                return;
+            }
             mResultDialog = new AlertDialog.Builder(activity)
                     .setPositiveButton(android.R.string.ok, null)
                     .create();
@@ -794,8 +800,10 @@ public class WifiSettingActivity extends BaseActivity {
                     }
                     mResultDialog.setMessage("配置失败");
                 }
+                if(WifiSettingActivity.this!=null&&mResultDialog!=null){
+                    mResultDialog.show();
+                }
 
-                mResultDialog.show();
             }
 
             activity.mTask = null;
