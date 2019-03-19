@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.canplay.medical.R;
 import com.canplay.milk.base.BaseActivity;
+import com.canplay.milk.bean.Wather;
 import com.canplay.milk.mvp.adapter.ViewPagerAdapter;
 import com.canplay.milk.util.SpUtil;
 import com.canplay.milk.util.TextUtil;
@@ -40,7 +41,7 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
     // 记录当前选中位置
     private int currentIndex;
 
-
+    private Wather wather = new Wather();
 
     @Override
     public void initViews() {
@@ -53,6 +54,9 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
           startActivity(intent);
           finish();
         }
+        wather.ml=60;
+        wather.wd=40;
+        SpUtil.getInstance().putWahter(wather);
         LayoutInflater inflater = LayoutInflater.from(this);
 
         views = new ArrayList<View>();
