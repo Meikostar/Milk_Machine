@@ -89,7 +89,6 @@ public class TcpClientManager implements  TcpClientListener {
             xTcpClient=null;
             StaticPackage.selectPosition=0;
         } else {
-
             AbsStickPackageHelper stickHelper = StaticPackage.getStickPackageHelper();
             if ( StringValidationUtils.validateRegex(BaseApplication.ip, StringValidationUtils.RegexIP)
                     && StringValidationUtils.validateRegex(port+"", StringValidationUtils.RegexPort)) {
@@ -156,7 +155,7 @@ public class TcpClientManager implements  TcpClientListener {
                 MilkConstant.selectCommnt(1,"01");
                 SendMessage(MilkConstant.sendCommends(),null);
                 try {
-                    Thread.sleep(8000);// 正常
+                    Thread.sleep(5000);// 正常
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

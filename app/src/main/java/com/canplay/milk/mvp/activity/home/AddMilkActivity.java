@@ -179,7 +179,10 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
 
                             return;
                         }
+                        Looper.prepare();
                         TcpClientManager.getInstance().SendMessage(cont, AddMilkActivity.this);
+                        Looper.loop();// 进入loop中的循环，查看消息队列
+
 
 
 

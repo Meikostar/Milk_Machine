@@ -255,7 +255,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                         }
 //                        handler.sendEmptyMessage(6);
 //                        type=6;
+                        Looper.prepare();
                         TcpClientManager.getInstance().SendMessage(cont,getActivity());
+                        Looper.loop();// 进入loop中的循环，查看消息队列
+
 //                        if(TextUtil.isNotEmpty(MilkConstant.HEAD)){
 //                            TcpClientManager.getInstance().disConnect();
 //                            StaticPackage.selectPosition=0;

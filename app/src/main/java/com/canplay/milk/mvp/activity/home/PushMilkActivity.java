@@ -145,8 +145,8 @@ public class PushMilkActivity extends BaseActivity implements BaseContract.View 
                         String a3= (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01"));
                         String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
                         String a5= (getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "").toUpperCase();
-                        String content = (Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "").toUpperCase()  +(Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "").toUpperCase() + (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-                                +(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "")).toUpperCase();
+//                        String content = (Integer.toHexString(Integer.valueOf(milk.waterTemperature)) + "").toUpperCase()  +(Integer.toHexString(Integer.valueOf(milk.waterQuantity)) + "").toUpperCase() + (milk.consistence.equals("high") ? "03" : (milk.consistence.equals("middle") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
+//                                +(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(milk.waterQuantity)))))) + "")).toUpperCase();
                         String s = (a1+a2+a3+a4+a5);
                         MilkConstant.selectCommnt(3, s);
                         String cont = MilkConstant.sendCommend();
@@ -303,46 +303,46 @@ public class PushMilkActivity extends BaseActivity implements BaseContract.View 
 
     private CountDownTimer countDownTimer1;
     private int couts=0;
-    public void isFinish() {
-        couts=0;
-        countDownTimer1 = new CountDownTimer(3000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                couts++;
-
-
-                if (BaseApplication.isReself != 0) {
-                    BaseApplication.waterQuantity = milk.waterQuantity;
-                    String contents = Integer.toHexString(Integer.valueOf(milk.waterQuantity));
-                    MilkConstant.selectCommnt(9, contents.toUpperCase());
-                    TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), PushMilkActivity.this);
-
-                }else {
-                    countDownTimer1.cancel();
-                    dimessProgress();
-                    showToasts("泡奶成功");
-
-                    finish();
-                }
-                if(couts==4)
-                {
-//                    presenter.insertUserMilkRecord(milk.waterQuantity + "");
-
-                }
-
-            }
-
-            @Override
-            public void onFinish() {
-                if (BaseApplication.isReself != 0) {
-                    dimessProgress();
-                    showToasts("泡奶成功");
-                    finish();
-                }
-
-            }
-        }.start();
-    }
+//    public void isFinish() {
+//        couts=0;
+//        countDownTimer1 = new CountDownTimer(3000, 1000) {
+//            @Override
+//            public void onTick(long millisUntilFinished) {
+//                couts++;
+//
+//
+//                if (BaseApplication.isReself != 0) {
+//                    BaseApplication.waterQuantity = milk.waterQuantity;
+//                    String contents = Integer.toHexString(Integer.valueOf(milk.waterQuantity));
+//                    MilkConstant.selectCommnt(9, contents.toUpperCase());
+//                    TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), PushMilkActivity.this);
+//
+//                }else {
+//                    countDownTimer1.cancel();
+//                    dimessProgress();
+//                    showToasts("泡奶成功");
+//
+//                    finish();
+//                }
+//                if(couts==4)
+//                {
+////                    presenter.insertUserMilkRecord(milk.waterQuantity + "");
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//                if (BaseApplication.isReself != 0) {
+//                    dimessProgress();
+//                    showToasts("泡奶成功");
+//                    finish();
+//                }
+//
+//            }
+//        }.start();
+//    }
 
     /**
      * 是否完成
@@ -465,7 +465,7 @@ public class PushMilkActivity extends BaseActivity implements BaseContract.View 
                 MilkConstant.selectCommnt(1, "");
                 TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommends(), PushMilkActivity.this);
                 try {
-                    Thread.sleep(1000);// 正常
+                    Thread.sleep(800);// 正常
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -108,7 +108,7 @@ public class SocketClientManager {
                         msg.what = 1;// 与服务器断开
                         mHandler.sendMessage(msg);// 知道断开后发送消息
                     } else {
-                        Thread.sleep(10 * 1000);// 正常
+                        Thread.sleep(5 * 1000);// 正常
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

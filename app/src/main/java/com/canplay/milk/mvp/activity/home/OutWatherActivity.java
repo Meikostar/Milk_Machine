@@ -271,8 +271,11 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
                         }
 //                        mHandler.sendEmptyMessage(6);
 //                        type=6;
-                        TcpClientManager.getInstance().SendMessage(cont,OutWatherActivity.this);
 
+
+                        Looper.prepare();
+                        TcpClientManager.getInstance().SendMessage(cont,OutWatherActivity.this);
+                        Looper.loop();// 进入loop中的循环，查看消息队列
 
                     }
                 }).start();
@@ -437,7 +440,7 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
                }
 
                 try {
-                    Thread.sleep(1000);// 正常
+                    Thread.sleep(800);// 正常
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
