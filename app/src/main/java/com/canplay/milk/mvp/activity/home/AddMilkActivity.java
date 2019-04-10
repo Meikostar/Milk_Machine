@@ -69,6 +69,7 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
         ButterKnife.bind(this);
         DaggerBaseComponent.builder().appComponent(((BaseApplication) getApplication()).getAppComponent()).build().inject(this);
         presenter.attachView(this);
+        TcpClientManager.HEART_TIME=500;
         dialogone = new HintDialogone(this, 2);
         dialogones = new HintDialogone(this, 4);
         dialogones.setBindClickListener(new HintDialogone.BindClickListener() {
@@ -105,13 +106,13 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
                     String cont= (String) bean.content;
                     if(!TextUtil.isEmpty(cont)){
                         if(cont.contains("开始泡奶")){
-                            mHandler.sendEmptyMessage(6);
+                            setType(6);
                             type = 6;
                         }else {
                             showToasts(cont);
                         }
                     }else {
-                        mHandler.sendEmptyMessage(6);
+                        setType(6);
                         type = 6;
 
                     }
@@ -160,9 +161,7 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
             @Override
             public void onClick(View v) {
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
+
                         String a1=( Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "").toUpperCase();
                         String a2=(Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "").toUpperCase();
                         String a3= (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
@@ -179,15 +178,10 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
 
                             return;
                         }
-                        Looper.prepare();
                         TcpClientManager.getInstance().SendMessage(cont, AddMilkActivity.this);
-                        Looper.loop();// 进入loop中的循环，查看消息队列
 
 
 
-
-                    }
-                }).start();
 
 
             }
@@ -205,22 +199,7 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
 //        }
         super.onResume();
     }
-    public void starBrodcast(){
-        UDPSocketBroadCast broadCast=new UDPSocketBroadCast();
-        broadCast.startUDP(new UDPSocketBroadCast.UDPDataCallBack() {
-            @Override
-            public void mCallback(String str) {
-                BaseApplication.ip= getHex(str.substring(22,24))+"."+getHex(str.substring(24,26))+"."+getHex(str.substring(26,28))+"."+getHex(str.substring(28,30));
 
-                if(TextUtil.isNotEmpty(BaseApplication.ip)){
-                    MilkConstant.HEAD=str.substring(0,20);
-                    MilkConstant.HD=str.substring(0,20);
-                    MilkConstant.EQUIPT=str.substring(8,20);
-                    TcpClientManager.getInstance().startTcpClient();
-                }
-            }
-        });
-    }
     public static String getHex(String cont) {
         char[] chars = cont.toCharArray();
         int i = 0;
@@ -271,20 +250,147 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
     }
     private Thread thread;
 
+    private CountDownTimer countDownTimers;
     public void startHear() {
-        if (thread == null) {
-            isStop = false;
-            thread = new Thread(runHeartbeat);
-            thread.start();
-        } else {
-            thread = null;
-            if (isStop) {
-                isStop = false;
-                thread = new Thread(runHeartbeat);
-                thread.start();
+        countDownTimers = new CountDownTimer(500000, 500) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if(!isStop){
+                    if (TextUtil.isNotEmpty(MilkConstant.CONT)) {
+                        isStop = true;
+                        if(sta!=0&&MilkConstant.CONT.equals("入水温度过高")){
+                            conts = MilkConstant.CONT;
+                            type = 2;
+                            conts = MilkConstant.CONT;
+//                    mHandler.sendEmptyMessage(1);
+                            setType(2);
+                            return;
+                        }
+
+                        type = 2;
+                        conts = MilkConstant.CONT;
+//                    mHandler.sendEmptyMessage(1);
+                        setType(2);
+                        return;
+                    }
+                    if (TextUtil.isNotEmpty(MilkConstant.SB)) {
+                        if (MilkConstant.SB.equals("01")) {
+                            if (MilkConstant.SEND == 0) {
+                                if (sta == 0) {
+                                    conts = "泡奶成功";
+                                } else {
+                                    conts = "自清洗完成";
+                                }
+
+                                type = 3;
+
+//                           showToasts("泡奶成功");
+//                            mHandler.sendEmptyMessage(1);
+                                setType(3);
+//                           dimessProgress();
+                                isStop = true;
+                                cout = 0;
+                            } else {
+                                if (state == 2) {
+
+                                    String a1=( Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "").toUpperCase();
+                                    String a2=(Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "").toUpperCase();
+                                    String a3= (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
+                                    String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
+                                    String a5=(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "").toUpperCase();
+//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
+//                                +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
+//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "" + Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
+                                    String s = (a1+a2+a3+a4+a5);
+                                    MilkConstant.selectCommnt(3, s);
+                                    String cont = MilkConstant.sendCommend();
+                                    if(TextUtil.isEmpty(cont)){
+                                        startActivity(new Intent(AddMilkActivity.this, WifiSettingActivity.class));
+
+                                        return;
+                                    }
+
+                                    TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
+
+                                } else {
+
+                                    if (cont == 0) {
+                                        sta = 0;
+                                        conts = "开始泡奶...";
+                                        type = 1;
+                                        setType(1);
+//                                    mHandler.sendEmptyMessage(1);
+//                                   showProgress("开始泡奶...");
+                                        cont++;
+                                    }
+
+                                }
+
+                                state = 0;
+                            }
+
+                        } else if (MilkConstant.SB.equals("02")) {
+
+//                        if (cont == 0) {
+//                            conts = "设备需要清洗，开始清洗 ...";
+                            if (sta == 0) {
+                                type = 7;
+                                setType(7);
+//                            mHandler.sendEmptyMessage(1);
+                            }
+////                           showProgress("设备需要清洗，开始清洗 ...");
+//                            cont++;
+//                        }
+
+//
+//                        MilkConstant.selectCommnt(2, "3666");
+//                        TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
+
+                        } else if (MilkConstant.SB.equals("03")) {
+                            if (cont == 0) {
+                                conts = "设备清洗中...";
+                                type = 1;
+                                setType(1);
+//                            mHandler.sendEmptyMessage(1);
+//                           showProgress("设备清洗中...");
+                                cont++;
+                            }
+
+                            state = 2;
+
+
+                        } else if (MilkConstant.SB.equals("04")) {
+
+                            sta = 0;
+                            conts = "泡奶中...";
+                            type = 1;
+                            setType(1);
+//                        mHandler.sendEmptyMessage(1);
+//                           showProgress("泡奶中...");
+                            cont++;
+
+
+                        } else if (MilkConstant.SB.equals("05")) {
+//                       dimessProgress();
+                            conts = "正在冲水中请稍后";
+                            type = 4;
+                            setType(4);
+//                        mHandler.sendEmptyMessage(1);
+//                       showToasts("正在冲水中请稍后");
+                            isStop = true;
+                        }
+                    }
+
+                }
+
             }
 
-        }
+            @Override
+            public void onFinish() {
+
+
+            }
+        }.start();
 
     }
 
@@ -297,136 +403,65 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
     public int cout;
     public int state;
     private int cont;
-    private Runnable runHeartbeat = new Runnable() {
-        @Override
-        public void run() {
-            while (!isStop) {
-                if (TextUtil.isNotEmpty(MilkConstant.CONT)) {
-                    isStop = true;
-                    if(sta!=0&&MilkConstant.CONT.equals("入水温度过高")){
-                        conts = MilkConstant.CONT;
-                        return;
-                    }
 
-                    type = 2;
-                    conts = MilkConstant.CONT;
-                    mHandler.sendEmptyMessage(1);
-                    return;
-                }
-                if (TextUtil.isNotEmpty(MilkConstant.SB)) {
-                    if (MilkConstant.SB.equals("01")) {
-                        if (MilkConstant.SEND == 0) {
-                            if (sta == 0) {
-                                conts = "泡奶成功";
-                            } else {
-                                conts = "自清洗完成";
-                            }
-
-                            type = 3;
-
-//                           showToasts("泡奶成功");
-                            mHandler.sendEmptyMessage(1);
-//                           dimessProgress();
-                            isStop = true;
-                            cout = 0;
-                        } else {
-                            if (state == 2) {
-                                String a1=( Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "").toUpperCase();
-                                String a2=(Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "").toUpperCase();
-                                String a3= (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
-                                String a4= (changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + "";
-                                String a5=(getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "").toUpperCase();
-//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-//                                +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
-//                        String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "" + Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
-                                String s = (a1+a2+a3+a4+a5);
-                                MilkConstant.selectCommnt(3, s);
-                                String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + ""+ (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-                                        +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
-//                                String s = content.toUpperCase();
-//                                MilkConstant.selectCommnt(3, content);
-//                                String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + ""  +Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01")+(changeInteger(SpUtil.getInstance().getWeight())<16?"0"+changeInteger(SpUtil.getInstance().getWeight()):Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getWeight())))) + ""
-//                                        +getChange(Integer.toHexString(Integer.valueOf(changeInteger(SpUtil.getInstance().getMilkWeight(Integer.valueOf(bsMl.getSelector())))))) + "");
-//                                String content = Integer.toHexString(Integer.valueOf(bsWd.getSelector())) + "" + Integer.toHexString(Integer.valueOf(bsMl.getSelector())) + "" + (bsNd.getSelector().equals("高") ? "03" : (bsNd.getSelector().equals("中") ? "02" : "01"));
-//                                MilkConstant.selectCommnt(3, content.toUpperCase());
-
-                                TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
-                            } else {
-
-                                if (cont == 0) {
-                                    sta = 0;
-                                    conts = "开始泡奶...";
-                                    type = 1;
-                                    mHandler.sendEmptyMessage(1);
-//                                   showProgress("开始泡奶...");
-                                    cont++;
-                                }
-
-                            }
-
-                            state = 0;
-                        }
-
-                    } else if (MilkConstant.SB.equals("02")) {
-
-//                        if (cont == 0) {
-//                            conts = "设备需要清洗，开始清洗 ...";
-                        if (sta == 0) {
-                            type = 7;
-                            mHandler.sendEmptyMessage(1);
-                        }
-////                           showProgress("设备需要清洗，开始清洗 ...");
-//                            cont++;
-//                        }
-
-//
-//                        MilkConstant.selectCommnt(2, "3666");
-//                        TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
-
-                    } else if (MilkConstant.SB.equals("03")) {
-                        if (cont == 0) {
-                            conts = "设备清洗中...";
-                            type = 1;
-                            mHandler.sendEmptyMessage(1);
-//                           showProgress("设备清洗中...");
-                            cont++;
-                        }
-
-                        state = 2;
-
-
-                    } else if (MilkConstant.SB.equals("04")) {
-
-                            sta = 0;
-                            conts = "泡奶中...";
-                            type = 1;
-                            mHandler.sendEmptyMessage(1);
-//                           showProgress("泡奶中...");
-                            cont++;
-
-
-                    } else if (MilkConstant.SB.equals("05")) {
-//                       dimessProgress();
-                        conts = "正在冲水中请稍后";
-                        type = 4;
-                        mHandler.sendEmptyMessage(1);
-//                       showToasts("正在冲水中请稍后");
-                        isStop = true;
-                    }
-                }
-                MilkConstant.selectCommnt(1, "");
-                TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommends(), AddMilkActivity.this);
-                try {
-                    Thread.sleep(1000);// 正常
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    };
     public String conts;
     public int type;
 
+    public void setType(int type){
+
+        if (type == 1) {
+            if (!isFinishing()) {
+                showProgress(conts);
+            }
+
+        } else if (type == 2) {
+            dimessProgress();
+            showToasts(conts);
+
+        } else if (type == 6) {
+            type = 0;
+            if (TextUtil.isNotEmpty(MilkConstant.HEAD)) {
+                startHear();
+
+            }
+
+        } else if (type == 7) {
+            type = 0;
+
+            isStop = true;
+            dialogones.show(tvEquptname);
+        } else if (type == 3) {
+
+            if (sta == 0) {
+                RxBus.getInstance().send(SubscriptionBean.createSendBean(SubscriptionBean.MILKS,bsMl.getSelector()));
+                dimessProgress();
+                showToasts("泡奶成功");
+                Intent intent = new Intent();
+                setResult(RESULT_OK,intent);
+                finish();
+//                BaseApplication.isReself=1;
+//                String contents = "66";
+//                MilkConstant.selectCommnt(9, contents.toUpperCase());
+//                TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
+//
+//                if(isStops){
+//                    isStops=false;
+//                    isFinish();
+//                }
+            } else {
+                dimessProgress();
+                showToasts(conts);
+                Intent intent = new Intent();
+                setResult(RESULT_OK,intent);
+                finish();
+            }
+
+        } else {
+
+            dimessProgress();
+            showToasts(conts);
+        }
+    }
     @Override
     public boolean handleMessage(Message msg) {
 
@@ -486,45 +521,6 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
     }
     private CountDownTimer countDownTimer1;
    private int couts;
-    public void isFinish() {
-        couts=0;
-        countDownTimer1 = new CountDownTimer(3000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                couts++;
-//                if(couts==4)
-//                {
-//                    presenter.insertUserMilkRecord(bsMl.getSelector() + "");
-//                }
-
-                if (BaseApplication.isReself != 0) {
-                    String contents = "66";
-                    MilkConstant.selectCommnt(9, contents.toUpperCase());
-                    TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(), AddMilkActivity.this);
-
-                }else {
-                    countDownTimer1.cancel();
-                    dimessProgress();
-                    showToasts("泡奶成功");
-                    Intent intent = new Intent();
-                    setResult(RESULT_OK,intent);
-                    finish();
-                }
-
-            }
-
-            @Override
-            public void onFinish() {
-                if (BaseApplication.isReself != 0) {
-
-                    dimessProgress();
-                    showToasts("泡奶成功");
-                    finish();
-                }
-
-            }
-        }.start();
-    }
     private CountDownTimer countDownTimer2;
     private int sta = 0;
 
@@ -546,6 +542,7 @@ public class AddMilkActivity extends BaseActivity implements BaseContract.View {
     @Override
     protected void onDestroy() {
         BaseApplication.isReself=0;
+        TcpClientManager.HEART_TIME=5000;
         super.onDestroy();
     }
 

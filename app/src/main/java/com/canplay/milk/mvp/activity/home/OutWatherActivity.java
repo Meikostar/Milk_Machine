@@ -91,6 +91,7 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
         DaggerBaseComponent.builder().appComponent(((BaseApplication) getApplication()).getAppComponent()).build().inject(this);
         presenter.attachView(this);
         adater = new Waterdapter(this);
+        TcpClientManager.HEART_TIME=500;
         listview.setAdapter(adater);
         animationhide = AnimationUtils.loadAnimation(this, R.anim.list_hide);
         animationshow = AnimationUtils.loadAnimation(this, R.anim.list_show);
@@ -133,13 +134,15 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
                     String cont= (String) bean.content;
                     if(!TextUtil.isEmpty(cont)){
                         if(cont.contains("开始冲水")){
-                            mHandler.sendEmptyMessage(6);
+//                            mHandler.sendEmptyMessage(6);
                             type = 6;
+                            setType(6);
                         }else {
                             showToasts(cont);
                         }
                     }else {
-                        mHandler.sendEmptyMessage(6);
+//                        mHandler.sendEmptyMessage(6);
+                        setType(6);
                         type = 6;
 
                     }
@@ -259,9 +262,7 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
                     showToasts("请选择出水量和温度");
                     return;
                 }
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
+
                         String content = Integer.toHexString(Integer.valueOf(wd))+""+Integer.toHexString((int) ml);
                         MilkConstant.selectCommnt(4,content.toUpperCase());
                         String cont = MilkConstant.sendCommend();
@@ -273,12 +274,9 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
 //                        type=6;
 
 
-                        Looper.prepare();
-                        TcpClientManager.getInstance().SendMessage(cont,OutWatherActivity.this);
-                        Looper.loop();// 进入loop中的循环，查看消息队列
 
-                    }
-                }).start();
+                        TcpClientManager.getInstance().SendMessage(cont,OutWatherActivity.this);
+
 
                 wather.wd=Integer.valueOf(wd);
                 wather.ml=ml;
@@ -331,21 +329,150 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
     }
 
     private Thread thread;
-    public void startHear(){
-        if(thread==null){
-            isStop=false;
-            thread= new Thread(runHeartbeat);
-            thread.start();
-        }else {
-            thread=null;
-            if(isStop){
-                isStop=false;
-                thread= new Thread(runHeartbeat);
-                thread.start();
+    private CountDownTimer countDownTimers;
+    public void startHear() {
+        countDownTimers = new CountDownTimer(500000, 500) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+                if(!isStop){
+                    if(TextUtil.isNotEmpty(MilkConstant.CONT)){
+                        if(sta!=0&&MilkConstant.CONT.equals("入水温度过高")){
+                            isStop=true;
+                            type=2;
+
+                            conts=MilkConstant.CONT;
+                            setType(2);
+                            return;
+                        }
+                        isStop=true;
+                        type=2;
+
+                        conts=MilkConstant.CONT;
+                        setType(2);
+//                    mHandler.sendEmptyMessage(1);
+                        return;
+                    }
+                    if(TextUtil.isNotEmpty(MilkConstant.SB)){
+                        if(MilkConstant.SB.equals("01")){
+                            if(MilkConstant.SEND==0){
+
+                                if(sta!=0){
+                                    conts="自清洗完成";
+                                }else {
+                                    conts="冲水成功";
+                                }
+
+
+
+                                type=2;
+                                setType(2);
+//                            mHandler.sendEmptyMessage(1);
+//                        showToasts("冲水成功");
+//                        dimessProgress();
+                                isStop=true;
+                                cout=0;
+                            }else {
+
+                                if(state==2){
+
+                                    String content = Integer.toHexString(Integer.valueOf(wd))+""+Integer.toHexString((int) ml);
+                                    MilkConstant.selectCommnt(4,content.toUpperCase());
+
+                                    TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(),OutWatherActivity.this);
+
+
+
+                                }else {
+                                    sta=0;
+                                    conts="开始冲水...";
+                                    type=1;
+                                    setType(1);
+//                                mHandler.sendEmptyMessage(1);
+//                            showProgress("开始冲水...");
+                                }
+
+                                state=0;
+                            }
+
+                        }else if(MilkConstant.SB.equals("02")){
+
+//                       conts="设备需要清洗，开始清洗 ...";
+                            if(sta==0){
+                                type=7;
+                                setType(7);
+////                    showProgress("设备需要清洗，开始清洗 ...");
+//                            mHandler.sendEmptyMessage(1);
+                            }
+
+                        }else if(MilkConstant.SB.equals("03")){
+                            conts="设备清洗中...";
+                            type=1;
+                            setType(1);
+//                        mHandler.sendEmptyMessage(1);
+//                    showProgress("设备清洗中...");
+                            state=2;
+
+
+                        }else if(MilkConstant.SB.equals("04")){
+//                    dimessProgress();
+                            conts="正在泡奶中请稍后";
+                            type=2;
+                            setType(2);
+//                        mHandler.sendEmptyMessage(1);
+//                    showToasts("正在泡奶中请稍后");
+                            isStop=true;
+                        }else if(MilkConstant.SB.equals("05")){
+                            sta=0;
+                            conts="冲水中...";
+                            type=1;
+                            setType(1);
+//                        mHandler.sendEmptyMessage(1);
+//                    showToasts("冲水中...");
+                            state=2;
+
+                        }
+                    }
+
+
+
+                }
+
             }
 
-        }
+            @Override
+            public void onFinish() {
 
+
+            }
+        }.start();
+
+    }
+    public void setType(int type){
+        if(type==1){
+            if (!isFinishing()) {
+                showProgress(conts);
+            }
+        }else  if(type==2){
+            dimessProgress();
+            showToasts(conts);
+            if(TextUtil.isNotEmpty(conts)){
+                if(conts.equals("冲水成功")){
+                    finish();
+                }
+            }
+
+        }else  if(type==6){
+            type=0;
+            startHear();
+
+        }else  if(type==7){
+            type=0;
+            isStop=true;
+            dialogone.show(line);
+        }else {
+            showToasts(conts);
+        }
     }
     /**
      * 是否完成
@@ -492,7 +619,14 @@ public class OutWatherActivity extends BaseActivity implements BaseContract.View
         }
         return ml + "";
     }
-   private int poition;
+
+    @Override
+    protected void onDestroy() {
+        TcpClientManager.HEART_TIME=5000;
+        super.onDestroy();
+    }
+
+    private int poition;
    private String wd="40";
     private int [] wds={60,55,50,46,43,40};
     @Override

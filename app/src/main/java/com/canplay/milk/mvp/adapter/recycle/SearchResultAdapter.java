@@ -72,7 +72,7 @@ public class SearchResultAdapter extends BaseRecycleViewAdapter {
                 intent.putExtra("titles", TextUtil.isNotEmpty(wipi.title)?wipi.title:"今日百科");
                 intent.putExtra("img", TextUtil.isNotEmpty(wipi.resoureKey)?wipi.resoureKey:"");
                 intent.putExtra("contents", TextUtil.isNotEmpty(wipi.shortContent)?wipi.shortContent:"宝宝的呵护");
-                intent.putExtra(WebViewWitesActivity.WEBURL,"http://39.108.15.39:41072/share.html?id="+wipi.id);
+                intent.putExtra(WebViewWitesActivity.WEBURL,wipi.url);
                 context.startActivity(intent);
             }
         });

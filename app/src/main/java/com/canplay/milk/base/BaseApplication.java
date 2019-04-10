@@ -120,29 +120,7 @@ public class BaseApplication extends DaemonApplication {
         mAlarmClock.setRepeat("每天");
         // 响铃周期
         mAlarmClock.setWeeks("2,3,4,5,6,7,1");
-       if(WifiUtils.shareInstance().isUseable()){
 
-               final UDPSocketBroadCast broadCast=new UDPSocketBroadCast();
-               broadCast.startUDP(new UDPSocketBroadCast.UDPDataCallBack() {
-                   @Override
-                   public void mCallback(String str) {
-                       ip= getHex(str.substring(22,24))+"."+getHex(str.substring(24,26))+"."+getHex(str.substring(26,28))+"."+getHex(str.substring(28,30));
-
-                       if(TextUtil.isNotEmpty(ip)){
-
-                           MilkConstant.HEAD=str.substring(0,20);
-                           MilkConstant.HD=str.substring(0,20);
-                           MilkConstant.EQUIPT=str.substring(8,20);
-                           RxBus.getInstance().send(SubscriptionBean.createSendBean(SubscriptionBean.CONNECT,""));
-                           SpUtil.getInstance().putString(SpUtil.WIFINAME,WifiUtils.shareInstance().getWifiName());
-                           TcpClientManager.getInstance().startTcpClient();
-                       }
-
-                   }
-               });
-
-
-       }
         countDownTimer = new CountDownTimer(1000*3600*48, 20000) {
             @Override
             public void onTick(long millisUntilFinished) {

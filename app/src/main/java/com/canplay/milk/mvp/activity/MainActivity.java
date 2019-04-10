@@ -105,6 +105,7 @@ public class MainActivity extends BaseActivity implements BaseContract.View {
                 .addRequestCode(PermissionConst.REQUECT_DATE)
                 .permissions(
                         Manifest.permission.CAMERA,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_EXTERNAL_STORAGE)
                 .request();
@@ -284,14 +285,8 @@ public class MainActivity extends BaseActivity implements BaseContract.View {
     @Override
     protected void onResume() {
         super.onResume();
-        if(TextUtil.isNotEmpty(MilkConstant.HEAD)){
-            TcpClientManager.getInstance().disConnect();
-            StaticPackage.selectPosition=0;
-            TcpClientManager.getInstance().startTcpClient();
-        }else {
-            starBrodcast();
-        }
-        starBoard("2");
+
+//        starBoard("2");
     }
     public void starBrodcast(){
         UDPSocketBroadCast broadCast=new UDPSocketBroadCast();

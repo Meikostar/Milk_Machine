@@ -2,6 +2,7 @@ package com.canplay.milk.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -222,7 +223,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 intent.putExtra("contents", TextUtil.isNotEmpty(home.article.shortContent)?home.article.shortContent:"宝宝的呵护");
                 intent.putExtra("state",1);
 
-                intent.putExtra(WebViewWitesActivity.WEBURL,"http://39.108.15.39:41072/share.html?id="+home.article.id);
+                intent.putExtra(WebViewWitesActivity.WEBURL,home.article.url);
                 startActivity(intent);
             }
         });
@@ -243,9 +244,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         tvZqx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
+                         TcpClientManager.HEART_TIME=500;
 
                         MilkConstant.selectCommnt(2,"3666");
                         String cont = MilkConstant.sendCommend();
@@ -255,9 +254,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                         }
 //                        handler.sendEmptyMessage(6);
 //                        type=6;
-                        Looper.prepare();
                         TcpClientManager.getInstance().SendMessage(cont,getActivity());
-                        Looper.loop();// 进入loop中的循环，查看消息队列
 
 //                        if(TextUtil.isNotEmpty(MilkConstant.HEAD)){
 //                            TcpClientManager.getInstance().disConnect();
@@ -265,8 +262,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 //                            TcpClientManager.getInstance().startTcpClient();
 //                        }
 
-                    }
-                }).start();
 
 
             }
@@ -281,20 +276,88 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
 
     }
     private Thread thread;
-    public void startHear(){
-        if(thread==null){
-            thread= new Thread(runHeartbeat);
-            thread.start();
-        }else {
-            if(isStop){
-                isStop=false;
-                thread= new Thread(runHeartbeat);
-                thread.start();
+    private CountDownTimer countDownTimers;
+    public void startHear() {
+        countDownTimers = new CountDownTimer(500000, 500) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                if(!isStop){
+                    if(BaseApplication.send==6){
+                        isStop=true;
+                    }
+
+                    if (TextUtil.isNotEmpty(MilkConstant.CONT)) {
+                        isStop = true;
+                        if(MilkConstant.CONT.equals("入水温度过高")){
+                            type = 2;
+                            conts = MilkConstant.CONT;
+                            handler.sendEmptyMessage(1);
+                            return;
+                        }
+                        type = 2;
+                        conts = MilkConstant.CONT;
+                        handler.sendEmptyMessage(1);
+                        return;
+                    }
+                    if(TextUtil.isNotEmpty(MilkConstant.SB)&&MilkConstant.SX.equals("01")){
+                        if(MilkConstant.SB.equals("01")){
+
+                            if(MilkConstant.SEND==0){
+                                conts="清洗成功";
+                                type=2;
+                                handler.sendEmptyMessage(1);
+//                        showToasts("冲水成功");
+//                        dimessProgress();
+                                isStop=true;
+                                cout=0;
+                            }else {
+
+
+                                conts="开始清洗...";
+                                type=1;
+                                handler.sendEmptyMessage(1);
+//                            showProgress("开始冲水...");
+
+
+                                state=0;
+                            }
+
+                        }else if(MilkConstant.SB.equals("02")){
+                            conts="开始清洗 ...";
+                            type=1;
+                            handler.sendEmptyMessage(1);
+//
+
+                        }else if(MilkConstant.SB.equals("03")){
+                            conts="设备清洗中...";
+                            type=1;
+                            handler.sendEmptyMessage(1);
+//                    showProgress("设备清洗中...");
+                            state=2;
+
+
+                        }
+                    }
+
+                    if(BaseApplication.send==3){
+                        BaseApplication.send=0;
+                        isStop=true;
+                    }
+
+                }
+
+
             }
 
-        }
+            @Override
+            public void onFinish() {
+
+
+            }
+        }.start();
 
     }
+
     private void initView() {
 
     }
@@ -351,6 +414,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         public void run() {
             while (!isStop) {
                 if(BaseApplication.send==6){
+                    TcpClientManager.HEART_TIME=5000;
                     isStop=true;
                 }
                 MilkConstant.selectCommnt(1,"");

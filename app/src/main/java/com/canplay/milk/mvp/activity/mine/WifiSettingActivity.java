@@ -561,6 +561,9 @@ public class WifiSettingActivity extends BaseActivity {
                     receiver=str;
                     SpUtil.getInstance().putString(WIFI_NAME,etWifi.getText().toString().trim());
                     showToasts("配置成功");
+                    if(mTask!=null&&mTask.mProgressDialog!=null){
+                        mTask.mProgressDialog.dismiss();
+                    }
                     if(mProgressDialogs!=null){
                         mProgressDialogs.dismiss();
                     }
@@ -791,6 +794,13 @@ public class WifiSettingActivity extends BaseActivity {
                                 .append(" more result(s) without showing\n");
                     }
                     mResultDialog.setMessage("配置成功");
+                    if(mProgressDialogs!=null){
+                        mProgressDialogs.dismiss();
+                    }
+                    if(mProgressDialog!=null){
+                        mProgressDialog.dismiss();
+                    }
+
                     state=1;
 
 

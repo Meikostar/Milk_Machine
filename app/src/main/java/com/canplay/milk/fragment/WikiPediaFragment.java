@@ -152,7 +152,7 @@ public class WikiPediaFragment extends BaseFragment implements View.OnClickListe
                 intent.putExtra("img", TextUtil.isNotEmpty(article.resoureKey)?article.resoureKey:"");
                 intent.putExtra("contents", TextUtil.isNotEmpty(article.shortContent)?article.shortContent:"宝宝的呵护");
                 intent.putExtra("state", 1);
-                intent.putExtra(WebViewWitesActivity.WEBURL, "http://39.108.15.39:41072/share.html?id=" + article.id);
+                intent.putExtra(WebViewWitesActivity.WEBURL,  article.url);
                 startActivity(intent);
             }
         });

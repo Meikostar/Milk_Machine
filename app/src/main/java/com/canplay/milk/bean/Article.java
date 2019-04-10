@@ -18,6 +18,7 @@ public class Article {
     public String id;
     public String title;
     public String shortContent;
+    public String url;
     public String resoureKey;
     public String orderBy;
 

@@ -85,9 +85,7 @@ public class TcpClientManager implements  TcpClientListener {
     public void startTcpClient() {
 
         if (xTcpClient != null && xTcpClient.isConnected()) {
-            xTcpClient.disconnect();
-            xTcpClient=null;
-            StaticPackage.selectPosition=0;
+          return;
         } else {
             AbsStickPackageHelper stickHelper = StaticPackage.getStickPackageHelper();
             if ( StringValidationUtils.validateRegex(BaseApplication.ip, StringValidationUtils.RegexIP)
@@ -133,29 +131,17 @@ public class TcpClientManager implements  TcpClientListener {
     private Runnable runHeartbeat = new Runnable() {
         @Override
         public void run() {
-            String phone = SpUtil.getInstance().getString(SpUtil.PHONE);
 
-            String content = "";
-            if(TextUtil.isNotEmpty(phone)){
-                for(int i=0;i<phone.length();i++){
-                    content=content+ "0"+Integer.toHexString(Integer.valueOf(phone.substring(i,i+1)));
-                }
-                MilkConstant.selectCommnt(8,content);
-                Looper.prepare();
-                TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(),null);
-                Looper.loop();// 进入loop中的循环，查看消息队列
 
-            }
-
-            while (!BaseApplication.stop&&!isStop) {
-                if(BaseApplication.state==0){
-                    isStop=true;
-                }
+            while (true) {
+//                if(BaseApplication.state==0){
+//                    isStop=true;
+//                }
 
                 MilkConstant.selectCommnt(1,"01");
                 SendMessage(MilkConstant.sendCommends(),null);
                 try {
-                    Thread.sleep(5000);// 正常
+                    Thread.sleep(HEART_TIME);// 正常
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -163,7 +149,7 @@ public class TcpClientManager implements  TcpClientListener {
         }
     };
 
-
+  public static  int HEART_TIME=5000;
     /**
      * 客户端正常退出调用这个方法
      */
@@ -248,7 +234,19 @@ public class TcpClientManager implements  TcpClientListener {
         BaseApplication.state=1;
         MilkConstant.HEAD=MilkConstant.HD;
             startHear();
+        String phone = SpUtil.getInstance().getString(SpUtil.PHONE);
 
+        String content = "";
+        if(TextUtil.isNotEmpty(phone)){
+            for(int i=0;i<phone.length();i++){
+                content=content+ "0"+Integer.toHexString(Integer.valueOf(phone.substring(i,i+1)));
+            }
+            MilkConstant.selectCommnt(8,content);
+
+            TcpClientManager.getInstance().SendMessage(MilkConstant.sendCommend(),null);
+
+
+        }
 
     }
     private Thread thread;
@@ -260,6 +258,7 @@ public class TcpClientManager implements  TcpClientListener {
         }else {
             if(isStop){
                 isStop=false;
+                thread=null;
                 thread= new Thread(runHeartbeat);
                 thread.start();
             }
@@ -303,19 +302,6 @@ public class TcpClientManager implements  TcpClientListener {
         public void run() {
 
 
-            if(!BaseApplication.stop&&WifiUtils.shareInstance().isUseable()) {
-
-                if (couts == 4) {
-
-                    return;
-                } else {
-                    couts++;
-                    MilkConstant.HEAD="";
-                    TcpClientManager.getInstance().disConnect();
-                    starBrodcast();
-                    startAD();
-                }
-            }
         }
 
     };
@@ -323,9 +309,7 @@ public class TcpClientManager implements  TcpClientListener {
     private int time=9000;
      public void startAD() {
 
-        handler.removeCallbacks(runnable);
 
-        handler.postDelayed(runnable, time);
 
     }
     private static int couts;
